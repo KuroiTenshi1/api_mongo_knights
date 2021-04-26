@@ -130,7 +130,9 @@ app.post('/players', async (req, res) => {
     // console.log("data = "+data)
     try {
         // await Player.create(data);
-        res.send(await Player.create(data));
+        result = await Player.create(data)
+        console.log(result)
+        res.send(result);
         // res.send(req);
     } catch (err) {
         console.error("Get /players ", err, "\n")
@@ -141,7 +143,8 @@ app.post('/players', async (req, res) => {
 })
 app.put('/players/:id/', async (req, res) => {
     const id = req.params.id
-    const data = req.params;
+    const data = req.body;
+
     try {
         res.send(await Player.update(id, data));
     } catch (err) {

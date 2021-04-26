@@ -37,6 +37,9 @@ module.exports = {
     update: async function (id, data) {
         const player = await Player.findOne({_id: id})
 
+        console.log(data)
+        console.log(data.Knight_class.Knight_list)
+
         if (data.name) {
             player.name = data.name
         }
